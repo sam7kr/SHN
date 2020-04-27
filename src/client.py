@@ -6,8 +6,10 @@ def client(host, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
     print('Client connected')
+    message = ""
     while True:
-        message = input('S-command: ')
+        if message != "kill":
+            message = input('S-command: ')
         sock.sendall(message.encode('ascii'))
         response = sock.recv(4)
         response = response.decode('ascii')
@@ -15,7 +17,6 @@ def client(host, port):
 
         if response == "kill":
             sock.close()
-            print('Client Closed')
             break
     print('Client closed')
 
