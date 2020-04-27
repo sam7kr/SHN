@@ -6,15 +6,18 @@ def client(host, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
     print('Client connected')
-    message = input('S-command: ')
-    sock.sendall(message.encode('ascii'))
-    replay = sock.recv(4)
-    replay = replay.decode('ascii')
-    print(replay)
-    if replay == "kill":
-        sock.close()
-        sock = None
-    print('Client Closed')
+    while True:
+        message = input('S-command: ')
+        sock.sendall(message.encode('ascii'))
+        response = sock.recv(4)
+        response = response.decode('ascii')
+        print(response)
+
+        if response == "kill":
+            sock.close()
+            print('Client Closed')
+            break
+    print('Client closed')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=' Send and receive over TCP')
