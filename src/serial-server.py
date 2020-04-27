@@ -16,12 +16,12 @@ def server(interface, sp, port):
     print('Accepted connection from', sockname)
     while True:
         message = cl.recv(4)
-        message = message
-        print(' Incoming message', message)
         ser.write(message)
-        #cl.sendall(b'Ok')
+        message = message.decode('ascii')
+        print(' Incoming message:', message)
+        cl.sendall("done".encode('ascii'))
         if message == "kill":
-            cl.sendall(b'kill')
+            cl.sendall("kill".encode('ascii'))
             cl.close()
             break
     print('Server Closed')
