@@ -4,7 +4,7 @@ import argparse, socket, serial
 
 
 
-def server(interface, serial, sp, port):
+def server(interface, sp, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     ser = serial.Serial(sp, 9600, timeout=1)
 
@@ -16,10 +16,10 @@ def server(interface, serial, sp, port):
     print('Accepted connection from', sockname)
     while True:
         message = cl.recv(4)
-        message = message.decode()
+        message = message
         print(' Incoming message', message)
         ser.write(message)
-        cl.sendall(b'Ok\n')
+        #cl.sendall(b'Ok')
         if message == "kill":
             cl.sendall(b'kill')
             cl.close()
@@ -29,6 +29,7 @@ def server(interface, serial, sp, port):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Send and receive over TCP')
     parser.add_argument('host', help='server interface')
+    parser.add_argument('sp', metavar='PORT', help='Serial port')
     parser.add_argument('-p', metavar='PORT', type=int, default=55777, help='TCP port (default 55777)')
     args = parser.parse_args()
     server(args.host, args.sp, args.p)
