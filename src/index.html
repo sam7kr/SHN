@@ -13,7 +13,20 @@
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
 <br><br>
-	<button class  ="btn btn-info" onclick="pyshell.send('2on')">ON</button>
+    <div>
+        <h3>LED ONE</h3>
+	    <button id='buttonOneOn'>ON</button>
+	    <button id='buttonOneOff'>OFF</button>
+    </div>
+    <div>
+        <h3>LED TWO</h3>
+	    <button id='buttonTwoOn'>ON</button>
+	    <button id='buttonTwoOff'>OFF</button>
+    </div>
+    <div>
+        <h3>Kill the connection</h3>
+	    <button id='kill'>KILL</button>
+    </div>
     <!-- You can also require other files to run in this process -->
     <div id='divOne'></div>
     <script src="./renderer.js"></script>
