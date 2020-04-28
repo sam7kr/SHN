@@ -15,16 +15,17 @@ window.addEventListener('DOMContentLoaded', () => {
         replaceText(`${type}-version`, process.versions[type])
     }
   
-    let pyshell = new PythonShell('pytest.py')
-    pyshell.on('message', function(message){
-    document.getElementById("divOne").innerText = message
-  })
+	let options = {
+        	scriptPath: '.',
+        	args:['192.168.1.10']
+    	}    
+ 
+    	let pyshell = new PythonShell('client.py', options)
+    	pyshell.on('message', function(message){
+    	document.getElementById("divOne").innerText = message
+    	})
 
-    pyshell.end(function (err, code, signal){
-        if (err) throw err;
-        console.log('exit code:' + code);
-        console.log('exit signal:' + signal)
-    }) 
-    
+        pyshell.send('2on')
+
 })
 

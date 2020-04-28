@@ -1,6 +1,6 @@
 #! /usr/bin/python3.7
 
-import argparse, socket
+import argparse, socket, sys
 
 def client(host, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,4 +26,5 @@ if __name__ == '__main__':
     parser.add_argument('-p', metavar='PORT', type=int, default=55777, help='Server Port')
     args = parser.parse_args()
     client(args.host, args.p)
-        
+
+sys.stdout.flush()
