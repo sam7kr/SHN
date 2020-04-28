@@ -5,24 +5,23 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css">
+    <title>SerialControleOverTCP</title>
   </head>
   <body>
-    <h1 id="title">Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-<br><br>
+    <h1 id="title">SerialControlOverTcp</h1>
     <div>
         <h3>LED ONE</h3>
 	    <button id='buttonOneOn'>ON</button>
 	    <button id='buttonOneOff'>OFF</button>
     </div>
+    <br>
     <div>
         <h3>LED TWO</h3>
 	    <button id='buttonTwoOn'>ON</button>
 	    <button id='buttonTwoOff'>OFF</button>
     </div>
+    <br>
     <div>
         <h3>Kill the connection</h3>
 	    <button id='kill'>KILL</button>

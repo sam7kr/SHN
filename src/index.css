@@ -1,0 +1,28 @@
+body{
+    margin-left: 30px;
+}
+
+div{
+    margin-left: 30px;;
+}
+
+#buttonOneOn{
+    color: green;
+}
+
+#buttonOneOff{
+    color:red;
+}
+
+#buttonTwoOn{
+    color: green;
+}
+
+#buttonTwoOff{
+    color: red;
+}
+
+#kill{
+    color:red;
+    margin-left: 10px;
+}:window-inactive
