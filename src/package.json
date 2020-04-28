@@ -1,0 +1,23 @@
+{
+  "name": "serialhandler",
+  "version": "1.0.0",
+  "description": "this is the gui interface for SHN",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^8.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam7kr/SHN.git"
+  },
+  "author": "samir krireche",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sam7kr/SHN/issues"
+  },
+  "homepage": "https://github.com/sam7kr/SHN#readme"
+}
