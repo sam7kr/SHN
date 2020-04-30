@@ -23,6 +23,7 @@ def server(interface, sp, port):
                 fromArduino = ser.read(255)
                 message = message.decode('ascii')
                 print(' Incoming message:', message)
+                print(fromArduino)
                 cl.sendall(fromArduino)
                 if message == "kill" or message == "burn":
                     cl.sendall("kill".encode('ascii'))

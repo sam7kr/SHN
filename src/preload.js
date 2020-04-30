@@ -14,12 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
                 scriptPath: '.',
                 args:['192.168.1.10']
             }        
-            let pyshell = new PythonShell('client.py', options)
-            pyshell.on('message', function(message){
-            document.getElementById("divOne").innerText = message
-            })
-            console.log(pyshell)
-            console.log(host)
+        let pyshell = new PythonShell('client.py', options)
+            
+        pyshell.on('message', function(message){
+            document.getElementById("divOne").innerText = message.length
+            
+        })
     
         function buttonOneOn(){
             console.log(`sending \'2on\' over tcp`)
