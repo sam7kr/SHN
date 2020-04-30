@@ -11,7 +11,7 @@ def client(host, port):
         if message != "kill":
             message = input('S-command: ')
         sock.sendall(message.encode('ascii'))
-        response = sock.recv(4)
+        response = sock.recv(1023)
         response = response.decode('ascii')
         print(response)
 
