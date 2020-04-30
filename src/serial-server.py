@@ -3,11 +3,12 @@
 import argparse, socket, serial
 
 
-
 def server(interface, sp, port):
+    ser = serial.Serial(sp, 9600, timeout=1)
+    global message
+    message = ""
     while message != "burn":
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        ser = serial.Serial(sp, 9600, timeout=1)
 
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((interface, port))
@@ -21,11 +22,12 @@ def server(interface, sp, port):
             message = message.decode('ascii')
             print(' Incoming message:', message)
             cl.sendall("done".encode('ascii'))
-            if message == "kill":
+            if message == "kill" or message == "burn":
                 cl.sendall("kill".encode('ascii'))
                 cl.close()
                 break
         print('Server Closed')
+        
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Send and receive over TCP')
