@@ -18,11 +18,12 @@ def server(interface, sp, port):
         print('Accepted connection from', sockname)
         while True:
             try:
-                message = cl.recv(1023)
+                message = cl.recv(255)
                 ser.write(message)
+                fromArduino = ser.read(255)
                 message = message.decode('ascii')
                 print(' Incoming message:', message)
-                cl.sendall("done".encode('ascii'))
+                cl.sendall(fromArduino.encode('ascii'))
                 if message == "kill" or message == "burn":
                     cl.sendall("kill".encode('ascii'))
                     cl.close()
