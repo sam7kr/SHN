@@ -17,14 +17,17 @@ def server(interface, sp, port):
         cl, sockname = sock.accept()
         print('Accepted connection from', sockname)
         while True:
-            message = cl.recv(1023)
-            ser.write(message)
-            message = message.decode('ascii')
-            print(' Incoming message:', message)
-            cl.sendall("done".encode('ascii'))
-            if message == "kill" or message == "burn":
-                cl.sendall("kill".encode('ascii'))
-                cl.close()
+            try:
+                message = cl.recv(1023)
+                ser.write(message)
+                message = message.decode('ascii')
+                print(' Incoming message:', message)
+                cl.sendall("done".encode('ascii'))
+                if message == "kill" or message == "burn":
+                    cl.sendall("kill".encode('ascii'))
+                    cl.close()
+                    break
+            except ConnectionAbortedError:
                 break
         print('Server Closed')
         
