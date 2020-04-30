@@ -26,4 +26,9 @@ div{
 #kill{
     color:red;
     margin-left: 10px;
-}:window-inactive
+}
+
+#burn{
+    color:red;
+    margin-left: 10px;
+}

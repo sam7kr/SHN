@@ -41,12 +41,18 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(`sending \'kill\' over tcp`)
         pyshell.send('kill')
     }
+
+    function buttonBurn(){
+        console.log(`sending \'burn\' over tcp`)
+        pyshell.send('burn')
+    }
       
     document.getElementById("buttonOneOn").addEventListener("click", buttonOneOn)
     document.getElementById("buttonOneOff").addEventListener("click", buttonOneOff)
     document.getElementById("buttonTwoOn").addEventListener("click", buttonTwoOn)
     document.getElementById("buttonTwoOff").addEventListener("click", buttonTwoOff)
     document.getElementById("kill").addEventListener("click", buttonKill)
+    document.getElementById("burn").addEventListener("click", buttonBurn)
 
 })
 

@@ -3,9 +3,8 @@
 import argparse, socket, serial
 
 
-
 def server(interface, sp, port):
-    while message != "burn":
+    while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         ser = serial.Serial(sp, 9600, timeout=1)
 
