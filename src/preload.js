@@ -6,17 +6,17 @@ const { PythonShell } = require('python-shell')
 
 
 window.addEventListener('DOMContentLoaded', () => { 
-  
+    
+    function openPy(){
 	let options = {
         	scriptPath: '.',
         	args:['192.168.1.10']
-    	}    
- 
-    	let pyshell = new PythonShell('client.py', options)
+    	}        
+        let pyshell = new PythonShell('client.py', options)
     	pyshell.on('message', function(message){
-    	document.getElementById("divOne").innerText = message
-    	})
-
+        document.getElementById("divOne").innerText = message
+        })
+    
     function buttonOneOn(){
         console.log(`sending \'2on\' over tcp`)
         pyshell.send('2on')
@@ -53,6 +53,8 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("buttonTwoOff").addEventListener("click", buttonTwoOff)
     document.getElementById("kill").addEventListener("click", buttonKill)
     document.getElementById("burn").addEventListener("click", buttonBurn)
+    }
 
+    document.getElementById("connectPy").addEventListener("click", openPy)
 })
 

@@ -5,11 +5,11 @@ import argparse, socket, sys
 def client(host, port):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((host, port))
-    print('Client connected')
+    print('connected')
     message = ""
     while True:
         if message != "kill":
-            message = input('S-command: ')
+            message = input()
         sock.sendall(message.encode('ascii'))
         response = sock.recv(1023)
         response = response.decode('ascii')
@@ -18,7 +18,7 @@ def client(host, port):
         if response == "kill":
             sock.close()
             break
-    print('Client closed')
+    print('disconnected')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=' Send and receive over TCP')

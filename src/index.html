@@ -9,7 +9,12 @@
     <title>SerialControleOverTCP</title>
   </head>
   <body>
-    <h1 id="title">SerialControlOverTcp</h1>
+    <h1 id="title">SerialControlOverTcp<h3>Status: <span id="status">Disconnected</span></h3></h1>
+    <div>
+        <button id='connectPy'>CONNECT</button>
+        <button id='kill'>KILL</button>
+        <button id='burn'>BURN</button>
+    </div>
     <div>
         <h3>LED ONE</h3>
 	    <button id='buttonOneOn'>ON</button>
@@ -22,13 +27,10 @@
 	    <button id='buttonTwoOff'>OFF</button>
     </div>
     <br>
-    <div>
-        <h3>Kill the connection</h3>
-      <button id='kill'>KILL</button>
-      <button id='burn'>BURN</button>
-    </div>
+  
     <!-- You can also require other files to run in this process -->
     <div id='divOne'></div>
+    <div id='divTwo'></div>
     <script src="./renderer.js"></script>
   </body>
 </html>
