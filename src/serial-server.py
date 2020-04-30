@@ -7,7 +7,7 @@ def server(interface, sp, port):
     ser = serial.Serial(sp, 9600, timeout=1)
     global message
     message = ""
-    while message != "burn":
+    while message != "burn": # for keeping the server listening
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
