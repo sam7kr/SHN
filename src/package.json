@@ -4,7 +4,7 @@
   "description": "this is the gui interface for SHN",
   "main": "main.js",
   "dependencies": {
-    "electron": "^9.4.0",
+    "electron": "^13.6.6",
     "electron-packager": "^14.2.1",
     "python-shell": "^1.0.8"
   },
